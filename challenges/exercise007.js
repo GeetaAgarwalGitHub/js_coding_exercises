@@ -4,6 +4,17 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+
+  //variable to save total
+  var total = 0;
+
+  var number = n.toString().trim();
+
+  for (var i = 0; i < number.length; i++) {
+    total = total + Number(number.toString().substring(i, i + 1));
+  }
+
+  return total;
 };
 
 /**
@@ -17,6 +28,17 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+
+  //variable to store the result array and index
+  var resultArray = new Array();
+  var index = 0;
+
+  //iterate through each number starting at start to end adding the step counter
+  for (i = start; i <= end; i = i + step) {
+    resultArray[index] = i;
+    index++;
+  }
+  return resultArray;
 };
 
 /**
@@ -48,9 +70,48 @@ const createRange = (start, end, step) => {
  * For example, if passed the above users and the date "2019-05-04" the function should return ["beth_1234"] as she used over 100 minutes of screentime on that date.
  * @param {Array} users
  */
+
+
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+
+  var screenTime;
+  var currObject;
+  var count = 0;
+  var resultArray = new Array();
+  var index = 0;
+
+  //iterate through each user in the users
+  for (var user = 0; user < users.length; user++) {
+    screenTime = users[user]['screenTime'];
+
+    //iterate through each screentime object
+    for (var i = 0; i < screenTime.length; i++) {
+
+      //save the usage object
+      if (screenTime[i]['date'] == date) {
+        currObject = screenTime[i]['usage'];
+
+        //add total usage for each user
+        for (var currProperty in currObject) {
+          count = count + currObject[currProperty];
+        }
+
+        //if usage over 100 minutes add username to result array
+        if (count > 100) {
+          resultArray[index] = users[user]['username'];
+          count = 0;
+          index++;
+          break;
+        }
+      }
+
+    }
+  }
+  return resultArray;
+
+
 };
 
 /**
@@ -65,6 +126,15 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
+  if (result) {
+    var r = parseInt(result[1], 16);
+    var g = parseInt(result[2], 16);
+    var b = parseInt(result[3], 16);
+    return 'rgb(' + r + "," + g + "," + b + ')';
+  }
+  return null;
 };
 
 /**
@@ -79,6 +149,55 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+
+  var resultArrayForX = new Array;
+  var indexForX = 0;
+  var resultArrayFor0 = new Array;
+  var indexFor0 = 0;
+  var winner = '';
+
+
+  //possible combimations to be a winner
+  var resultArray = [
+    [0, 1, 2],
+    [1, 2, 3],
+    [2, 3, 4],
+    [0, 2, 4],
+    [2, 2, 2]
+  ]
+
+
+  //iterate through each row of the board
+  for (var i = 0; i < 3; i++) {
+
+    //iterate through each column on the board
+    for (var j = 0; j < 3; j++) {
+
+      //if X then save the position
+      if (board[i][j] == "X") {
+        resultArrayForX[indexForX] = i + j;
+        indexForX++;
+      }
+
+
+      //if 0 then save the position
+      if (board[i][j] == "0") {
+        resultArrayFor0[indexFor0] = i + j;
+        indexFor0++;
+      }
+    }
+  }
+
+  //loop through eahc combination in the resultArray to see if any of the combinations match
+  //if yes, then save the winner
+  for (var k = 0; k < resultArray.length; k++) {
+    if (resultArrayForX[0] == resultArray[k][0] && resultArrayForX[1] == resultArray[k][1] && resultArrayForX[2] == resultArray[k][2])
+      winner = winner + 'X';
+    if (resultArrayFor0[0] == resultArray[k][0] && resultArrayFor0[1] == resultArray[k][1] && resultArrayFor0[2] == resultArray[k][2])
+      winner = winner + '0';
+
+  }
+  return winner;
 };
 
 module.exports = {
