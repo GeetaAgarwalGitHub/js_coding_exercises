@@ -51,10 +51,8 @@ function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
 
   //If first letter of postcode is M and city is Manchester return true else return false
-  if (person['address']['postCode'].substring(0, 1).toUpperCase().includes('M') && person['address']['city'].toUpperCase().includes('MANCHESTER'))
-    return true;
-  else
-    return false;
+  return person['address']['postCode'].substring(0, 1).toUpperCase().includes('M') && person['address']['city'].toUpperCase().includes('MANCHESTER')
+   
 }
 
 module.exports = {
