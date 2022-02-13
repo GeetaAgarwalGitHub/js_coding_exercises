@@ -10,7 +10,7 @@ const sumDigits = n => {
 
   var number = n.toString().trim();
 
-  for (var i = 0; i < number.length; i++) {
+  for (let i = 0; i < number.length; i++) {
     total = total + Number(number.toString().substring(i, i + 1));
   }
 
@@ -34,7 +34,7 @@ const createRange = (start, end, step) => {
   var index = 0;
 
   //iterate through each number starting at start to end adding the step counter
-  for (i = start; i <= end; i = i + step) {
+  for (let i = start; i <= end; i = i + step) {
     resultArray[index] = i;
     index++;
   }
@@ -83,11 +83,11 @@ const getScreentimeAlertList = (users, date) => {
   var index = 0;
 
   //iterate through each user in the users
-  for (var user = 0; user < users.length; user++) {
+  for (let user = 0; user < users.length; user++) {
     screenTime = users[user]['screenTime'];
 
     //iterate through each screentime object
-    for (var i = 0; i < screenTime.length; i++) {
+    for (let i = 0; i < screenTime.length; i++) {
 
       //save the usage object
       if (screenTime[i]['date'] == date) {
@@ -168,10 +168,10 @@ const findWinner = board => {
 
 
   //iterate through each row of the board
-  for (var i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
 
     //iterate through each column on the board
-    for (var j = 0; j < 3; j++) {
+    for (let j = 0; j < 3; j++) {
 
       //if X then save the position
       if (board[i][j] == "X") {
@@ -190,7 +190,7 @@ const findWinner = board => {
 
   //loop through eahc combination in the resultArray to see if any of the combinations match
   //if yes, then save the winner
-  for (var k = 0; k < resultArray.length; k++) {
+  for (let k = 0; k < resultArray.length; k++) {
     if (resultArrayForX[0] == resultArray[k][0] && resultArrayForX[1] == resultArray[k][1] && resultArrayForX[2] == resultArray[k][2])
       winner = winner + 'X';
     if (resultArrayFor0[0] == resultArray[k][0] && resultArrayFor0[1] == resultArray[k][1] && resultArrayFor0[2] == resultArray[k][2])
