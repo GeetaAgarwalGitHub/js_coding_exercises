@@ -17,7 +17,7 @@ function getBusNumbers(people) {
   if (people === undefined) throw new Error("people is required");
 
   //Divide by 40 and get the the divisor for number of buses
-  var NumberOfBuses = Math.floor(people / 40);
+  const NumberOfBuses = Math.floor(people / 40);
 
   //if remiander is not 0 then add one more bus
   if (people % 40 != 0)
@@ -31,17 +31,7 @@ function getBusNumbers(people) {
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
 
-  //Counter for number of sheep
-  var count = 0;
-
-  //iterate through each element in the array
-  for (let  i = 0; i < arr.length; i++) {
-    //if element is sheep then increment counter
-    if (arr[i].toUpperCase().includes('SHEEP'))
-      count = count + 1;
-  }
-
-  return count;
+   return arr.filter(arr => arr.toUpperCase() =='SHEEP').length
 }
 
 function hasMPostCode(person) {
