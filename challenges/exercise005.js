@@ -6,7 +6,7 @@ const findNextNumber = (nums, n) => {
   var result = null;
 
   //iterate through each number in nums
-  for (var i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
 
     //if required number found and next number is not null then return the next number
     if (nums[i] == n && nums[i + 1] != null) {
@@ -31,7 +31,7 @@ const count1sand0s = str => {
   var numberof1s = 0;
 
   //iterate through char in string
-  for (var i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     //if char is 1 then increment counter for 1
     if (str[i].includes('1'))
       numberof1s++;
@@ -63,7 +63,7 @@ const reverseNumber = n => {
   var firstNon0Digit = null;
 
   //iterate through each digit in n
-  for (var i = numberOfDigits; i > 0; i--) {
+  for (let i = numberOfDigits; i > 0; i--) {
 
     //when first non 0 digit found , set a flag to ignore the preceding 0s
     if (!number[i - 1].includes('0') > 0 && firstNon0Digit == null)
@@ -86,10 +86,10 @@ const sumArrays = arrs => {
   var total = 0;
 
   //iterate through each array in arra
-  for (var i = 0; i < arrs.length; i++) {
+  for (let i = 0; i < arrs.length; i++) {
 
     //iterate through each array in the array
-    for (var j = 0; j < arrs[i].length; j++) {
+    for (let j = 0; j < arrs[i].length; j++) {
       //add to total
       total = total + arrs[i][j];
     }
@@ -116,7 +116,7 @@ const arrShift = arr => {
   resultArray[0] = arr[arrLength - 1];
 
   //iterate through all element of the arr starting from second element to second last element and add them to the result array
-  for (var i = 1; i < arrLength - 1; i++)
+  for (let i = 1; i < arrLength - 1; i++)
     resultArray[i] = arr[i];
 
   //Put first element of arr into last element of result
@@ -132,7 +132,7 @@ const findNeedle = (haystack, searchTerm) => {
 
 
   //iterate through each property 
-  for (var currProperty in haystack) {
+  for (let currProperty in haystack) {
 
     //if the key contains search term then reurn true
     if (haystack[currProperty].toString().toLowerCase().includes(searchTerm.toLowerCase()))
@@ -155,7 +155,7 @@ const getWordFrequencies = str => {
   var j = 0;
 
   //iterate through each word in the array
-  for (i = 0; i < strArray.length; i++) {
+  for (let i = 0; i < strArray.length; i++) {
 
     //check the count of words in object
     j = checkCountIfKeyExists(resultObject, strArray[i])
@@ -164,7 +164,7 @@ const getWordFrequencies = str => {
     if (j > 0)
       resultObject[strArray[i].toLowerCase()] = j + 1;
     else
-    //else add key and value
+      //else add key and value
       resultObject[strArray[i].toLowerCase()] = 1;
   }
 
