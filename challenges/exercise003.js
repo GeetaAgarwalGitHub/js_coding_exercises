@@ -23,7 +23,7 @@ function camelCaseWords(words) {
   var resultString = '';
 
   //iterate through each word in the array
-  for (var i = 0; i < words.length; i++) {
+  for (let i = 0; i < words.length; i++) {
 
     //change the case to lower if first word else change to uppercase
     if (i == 0)
@@ -42,6 +42,7 @@ function getTotalSubjects(people) {
 
   //variabel to store the count
   var count = 0;
+
 
   //iterate through each person and add the number of subjects
   for (let i = 0; i < people.length; i++) {
