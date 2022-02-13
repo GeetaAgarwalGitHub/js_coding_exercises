@@ -10,7 +10,7 @@ function capitalize(word) {
   var resultString = '';
 
   //Ititerate through each word
-  for (var i = 0; i < wordArray.length; i++) {
+  for (let i = 0; i < wordArray.length; i++) {
 
     //if First word or previous word has fullstop then convert the first char to uppercase and add to result string
     if (i == 0 || needsCapitalisation)
@@ -26,7 +26,6 @@ function capitalize(word) {
 
   }
   return (resultString.trim());
-
 }
 
 
@@ -92,7 +91,7 @@ function getMiddleCharacter(str) {
 
 
   //get the length of the string
-  var len = str.length;
+  const len = str.length;
 
   //if small string return as it is
   if (len == 1 || len == 2)
@@ -115,7 +114,7 @@ function reverseWord(word) {
   var resultString = '';
 
   //iterate through each character in the word starting from last character
-  for (var i = len; i > 0; i--) {
+  for (let  i = len; i > 0; i--) {
 
     //0 index based, hence -1
     resultString = resultString + word.charAt(i - 1);
@@ -138,9 +137,9 @@ function reverseAllWords(words) {
 
 
   //iterate through each element in the array
-  for (var i = 0; i < count; i++) {
+  for (let i = 0; i < count; i++) {
     //ititerate through each character in the current array element
-    for (var j = words[i].length; j > 0; j--) {
+    for (let j = words[i].length; j > 0; j--) {
       //append each to variable
       reversedWord = reversedWord + words[i].charAt(j - 1);
     }
@@ -158,7 +157,7 @@ function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
 
   //Variable for number of users
-  var numberOfUsers = users.length;
+  const numberOfUsers = users.length;
 
   //Counter for linux users
   var count = 0;
@@ -167,7 +166,7 @@ function countLinuxUsers(users) {
   var currentUser;
 
   //iterate through each user
-  for (var i = 0; i < numberOfUsers; i++) {
+  for (let i = 0; i < numberOfUsers; i++) {
 
     //update current user
     currentUser = users[i];
@@ -189,7 +188,7 @@ function getMeanScore(scores) {
   var mean = 0;
 
   //iterate through each score
-  for (var i = 0; i < scores.length; i++) {
+  for (let i = 0; i < scores.length; i++) {
     //add the scores
     sum = sum + scores[i];
   }
@@ -208,8 +207,8 @@ function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
 
   //store the remainders when number divided by 3 & 5
-  var isDivisibleBy3 = n % 3;
-  var isDivisibleBy5 = n % 5;
+  const isDivisibleBy3 = n % 3;
+  const isDivisibleBy5 = n % 5;
 
   //return according to remainder
   if (isDivisibleBy3 == 0 && isDivisibleBy5 == 0)
