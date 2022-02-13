@@ -10,10 +10,7 @@ function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
 
   //If city is Manchester return true else return false
-  if (person['city'].toUpperCase() == 'MANCHESTER')
-    return true;
-  else
-    return false;
+  return person['city'].toUpperCase() == 'MANCHESTER'
 }
 
 function getBusNumbers(people) {
@@ -38,7 +35,7 @@ function countSheep(arr) {
   var count = 0;
 
   //iterate through each element in the array
-  for (var i = 0; i < arr.length; i++) {
+  for (let  i = 0; i < arr.length; i++) {
     //if element is sheep then increment counter
     if (arr[i].toUpperCase().includes('SHEEP'))
       count = count + 1;
