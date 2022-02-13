@@ -6,7 +6,7 @@ function findSmallNums(nums) {
   var index = 0;
 
   //iterate through each number in nums#
-  for (var i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
 
     //if number less than 1 add it to result array
     if (nums[i] < 1) {
@@ -28,7 +28,7 @@ function findNamesBeginningWith(names, char) {
   var index = 0;
 
   //iterate through each name in names
-  for (var i = 0; i < names.length; i++) {
+  for (let i = 0; i < names.length; i++) {
 
     //if first char is as expected
     if (names[i].substring(0, 1).toLowerCase().includes(char.toString().toLowerCase())) {
@@ -49,7 +49,7 @@ function findVerbs(words) {
   var index = 0;
 
   //iterate through each word in array
-  for (var i = 0; i < words.length; i++) {
+  for (let i = 0; i < words.length; i++) {
 
     //if word is to
     if (words[i].trim().substring(0, 3).toLowerCase().includes('to ')) {
@@ -69,7 +69,7 @@ function getIntegers(nums) {
   var index = 0;
 
   //iterate through each number in nums#
-  for (var i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
 
     //if number less than 1 add it to result array
     if (!nums[i].toString().includes('.')) {
@@ -86,7 +86,7 @@ function getCities(users) {
   //variable to store the result array
   var resultArray = new Array();
   var index = 0;
-  for (var i = 0; i < users.length; i++) {
+  for (let i = 0; i < users.length; i++) {
     resultArray[index] = users[i]['data']['city']['displayName'];
     index++;
   }
@@ -103,7 +103,7 @@ function getSquareRoots(nums) {
   var sqrt = 0;
 
   //iterate through each number in nums
-  for (var i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length; i++) {
 
     //get the square root
     sqrt = Math.sqrt(nums[i]);
@@ -131,7 +131,7 @@ function findSentencesContaining(sentences, str) {
   var index = 0;
 
   //iterate through each sentence in array
-  for (var i = 0; i < sentences.length; i++) {
+  for (let i = 0; i < sentences.length; i++) {
 
     //if sentencehas required string
     if (sentences[i].toLowerCase().includes(str.toLowerCase())) {
@@ -155,9 +155,9 @@ function getLongestSides(triangles) {
   var currLongerSide = 0;
 
   //iterate through each traingle in array
-  for (var i = 0; i < triangles.length; i++) {
+  for (let i = 0; i < triangles.length; i++) {
     //iterate through each length for the triangle
-    for (var j = 0; j < 3; j++) {
+    for (let j = 0; j < 3; j++) {
       //if current length is longer then save it
       if (triangles[i][j] > currLongerSide)
         currLongerSide = triangles[i][j];
