@@ -15,7 +15,7 @@ const sumMultiples = arr => {
   //variable to store the sum of numbers divisible by 3 or 5
   var totalSum = 0;
 
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     //store the remainders when number divided by 3 & 5
     isDivisibleBy3 = arr[i] % 3;
     isDivisibleBy5 = arr[i] % 5;
@@ -43,7 +43,7 @@ const isValidDNA = str => {
   var DNA = str.toString().toLowerCase();
 
   //iterate through each char in string
-  for (var i = 0; i < DNA.length; i++) {
+  for (let i = 0; i < DNA.length; i++) {
 
     //IF not A, C, G, T return false
     if (!DNA[i].includes('c') && !DNA[i].includes('g') && !DNA[i].includes('t') && !DNA[i].includes('a'))
@@ -78,7 +78,7 @@ const getComplementaryDNA = str => {
   var resultBaseDNA = '';
 
   //iterate through each character in string and get value based on key in DNA object
-  for (var i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     resultBaseDNA = resultBaseDNA + DNAObject[str[i].toUpperCase()];
 
   }
@@ -131,11 +131,11 @@ const createMatrix = (n, fill) => {
   var subArray = new Array();
 
   //iterate 0 through n to creat arrays
-  for (i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
 
     //fill the subarrays with content
 
-    for (j = 0; j < n; j++)
+    for (let j = 0; j < n; j++)
       subArray[j] = fill;
 
     //add subarray to result
@@ -164,7 +164,7 @@ const areWeCovered = (staff, day) => {
   var numberOfStaff = 0;
 
   //iterate through each staff
-  for (var i = 0; i < staff.length; i++) {
+  for (let i = 0; i < staff.length; i++) {
     //if the rota contains the required day, increment counter
     if (staff[i]['rota'].toString().toLowerCase().includes(day.toLowerCase()))
       numberOfStaff++;
