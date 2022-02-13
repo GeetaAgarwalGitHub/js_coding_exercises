@@ -109,10 +109,13 @@ function getMiddleCharacter(str) {
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
 
-  //get the length of the string
-  var len = word.length;
-  var resultString = '';
 
+  return word.split('').reverse().join('')
+
+/*
+  //get the length of the string
+  const len = word.length;
+  var resultString = '';
   //iterate through each character in the word starting from last character
   for (let  i = len; i > 0; i--) {
 
@@ -120,7 +123,8 @@ function reverseWord(word) {
     resultString = resultString + word.charAt(i - 1);
   }
 
-  return resultString;
+  return resultString;*/
+
 }
 
 function reverseAllWords(words) {
@@ -150,22 +154,16 @@ function reverseAllWords(words) {
   }
 
   return resultString;
+
 }
 
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
 
-  //Variable for number of users
-  const numberOfUsers = users.length;
+  return users.filter( users =>users.type.toUpperCase () == 'LINUX').length
 
-  //Counter for linux users
-  var count = 0;
-
-  //Local variable for current user
-  var currentUser;
-
-  //iterate through each user
+/*  //iterate through each user
   for (let i = 0; i < numberOfUsers; i++) {
 
     //update current user
@@ -177,21 +175,25 @@ function countLinuxUsers(users) {
 
   }
 
-  return count;
+  return count;*/
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
 
+
   //Variables to store the sum and calculate the mean
   var sum = 0;
   var mean = 0;
 
-  //iterate through each score
+  sum =  scores.reduce((a, b) => a + b, 0)
+
+/*  //iterate through each score
   for (let i = 0; i < scores.length; i++) {
     //add the scores
     sum = sum + scores[i];
   }
+*/
 
   //calculate the mean
   mean = sum / scores.length;
