@@ -44,7 +44,7 @@ function getTotalSubjects(people) {
   var count = 0;
 
   //iterate through each person and add the number of subjects
-  for (var i = 0; i < people.length; i++) {
+  for (let i = 0; i < people.length; i++) {
     count = count + people[i]['subjects'].length;
   }
   return count;
