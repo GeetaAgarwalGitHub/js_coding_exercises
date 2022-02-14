@@ -19,12 +19,8 @@ function getBusNumbers(people) {
   //Divide by 40 and get the the divisor for number of buses
   const NumberOfBuses = Math.floor(people / 40);
 
-  //if remiander is not 0 then add one more bus
-  if (people % 40 != 0)
-    return Number(NumberOfBuses) + 1;
-  else
-    return NumberOfBuses;
-
+    return (people%40!=0) ?  Number(NumberOfBuses) + 1 : NumberOfBuses
+  
 }
 
 
