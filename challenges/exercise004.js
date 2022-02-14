@@ -1,20 +1,7 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
-  //variable to store the result array
-  var resultArray = new Array();
-  var index = 0;
-
-  //iterate through each number in nums#
-  for (let i = 0; i < nums.length; i++) {
-
-    //if number less than 1 add it to result array
-    if (nums[i] < 1) {
-      resultArray[index] = nums[i];
-      index++;
-    }
-  }
-  return resultArray;
+  return nums.filter(num => num < 1)
 
 }
 
@@ -22,22 +9,8 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
 
-
-  //variable to store the result array
-  var resultArray = new Array();
-  var index = 0;
-
-  //iterate through each name in names
-  for (let i = 0; i < names.length; i++) {
-
-    //if first char is as expected
-    if (names[i].substring(0, 1).toLowerCase().includes(char.toString().toLowerCase())) {
-      //add to result array
-      resultArray[index] = names[i];
-      index++;
-    }
-  }
-  return resultArray;
+  return names.filter(name => name.substring(0,1).toLowerCase().includes(char.toString().toLowerCase()))
+ 
 }
 
 function findVerbs(words) {
