@@ -9,10 +9,7 @@ function getSquares(nums) {
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   const newArr = words.reduce(function add(accumulator, word, index) {
-    if (index == 0)
-      return accumulator + word.substring(0, 1).toLowerCase() + word.substring(1).toLowerCase();
-    else
-      return accumulator + word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+    return (index == 0) ?  accumulator + word.substring(0, 1).toLowerCase() + word.substring(1).toLowerCase() : accumulator + word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
   });
 
   return newArr;
