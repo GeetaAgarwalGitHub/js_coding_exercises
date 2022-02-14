@@ -62,11 +62,7 @@ function getMiddleCharacter(str) {
     return str;
 
   //if the length is even remainder will be 0 so return middle 2 characters
-  if (len % 2 == 0)
-    return ((str.charAt((len / 2) - 1) + str.charAt((len / 2))));
-  else
-    //if the length is even return the middle character 
-    return (str.charAt(len / 2));
+  return (len % 2 == 0) ? ((str.charAt((len / 2) - 1) + str.charAt((len / 2)))) : (str.charAt(len / 2));
 
 }
 
