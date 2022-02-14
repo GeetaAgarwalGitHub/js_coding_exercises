@@ -1,16 +1,16 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
 
-const newArr = nums.map(function(item) {
-  return item * item;
-});
+  const newArr = nums.map(function (item) {
+    return item * item;
+  });
 
   return newArr;
 }
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-
+/*
   //Variale to staore the result
   var resultString = '';
 
@@ -26,7 +26,16 @@ function camelCaseWords(words) {
   }
 
   return resultString;
+*/
+const newArr =words.reduce( function add(accumulator, word,index) {
+  if(index == 0)
 
+  return accumulator + word.substring(0, 1).toLowerCase() + word.substring(1).toLowerCase();
+   else
+    return accumulator + word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+}
+);
+return newArr;
 }
 
 function getTotalSubjects(people) {
