@@ -40,66 +40,15 @@ function checkIngredients(menu, ingredient) {
 
   return foundIngredients.length > 0
 
-
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
 
-  //variable to store the lengths;
-  var arr1Len = arr1.length;
-  var arr2Len = arr2.length;
+  return [... new Set(arr1.filter(value => arr2.includes(value)))].sort()
 
-  //variables to store the sorted array , index and a flag to indicate if the item has already been added to the array
-  var resultArray = new Array();
-  var flag = false;
-
-
-  //iterate through each element in first array
-  for (var i = 0; i < arr1.length; i++) {
-
-    //iterate through each element in secodn array
-    for (var j = 0; j < arr2.length; j++) {
-      if (arr1[i] == arr2[j]) {
-
-        //reset flag
-        flag = true;
-
-        //iterate through each element in result array
-        for (var k = 0; k < resultArray.length; k++) {
-
-          //if element already exixts in reslt array do nothing and set flag to false
-          if (resultArray[k] == arr1[i]) {
-            flag = false;
-            break;
-          }
-        }
-        //if elememt not in result array
-        if (flag == true) {
-
-          //insert the element in sorted manner
-          resultArray = insert(arr1[i], resultArray);
-          flag = true;
-          break;
-        }
-
-      }
-    }
-  }
-
-  return resultArray;
 }
-
-
-function insert(element, array) {
-  array.push(element);
-  array.sort(function (a, b) {
-    return a - b;
-  });
-  return array;
-}
-
 
 module.exports = {
   getSquares,
