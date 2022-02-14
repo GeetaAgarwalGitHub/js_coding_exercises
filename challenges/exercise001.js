@@ -28,12 +28,9 @@ function addVAT(originalPrice, vatRate) {
   result = originalPrice + vatToBeAdded;
 
   //if the result has a decimal point, round it up to 2 places
-  if (result.toString().includes('.'))
-    result = result.toFixed(2);
+ return result.toString().includes('.') ?  result = Number(result.toFixed(2)) :  Number(result);
 
 
-  //Convert the result to Number and return
-  return Number(result);
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -51,13 +48,8 @@ function getSalePrice(originalPrice, reduction) {
   //add vat to original amount
   result = originalPrice - amounToBeDeducted;
 
-  //if the result has a decimal point, round it up to 2 places
-  if (result.toString().includes('.'))
-    result = result.toFixed(2);
+  return result.toString().includes('.') ?  result = Number(result.toFixed(2)) :  Number(result);
 
-
-  //Convert the result to Number and return
-  return Number(result);
 
 }
 
