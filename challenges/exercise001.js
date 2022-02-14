@@ -1,31 +1,7 @@
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
 
-  //split the words into array
-  var wordArray = word.split(' ');
-
-  //store a flag if prev word has full stop
-  var needsCapitalisation = false;
-
-  var resultString = '';
-
-  //Ititerate through each word
-  for (let i = 0; i < wordArray.length; i++) {
-
-    //if First word or previous word has fullstop then convert the first char to uppercase and add to result string
-    if (i == 0 || needsCapitalisation)
-      resultString = resultString + ' ' + wordArray[i].charAt(0).toUpperCase() + wordArray[i].substring(1)
-    else
-      resultString = resultString + ' ' + wordArray[i];
-
-    //if word contains ful stop set flag to true
-    if (wordArray[i].includes('.'))
-      needsCapitalisation = true;
-    else
-      needsCapitalisation = false;
-
-  }
-  return (resultString.trim());
+  return word.substring(0,1).toUpperCase() + word.substring(1)
 }
 
 
@@ -33,7 +9,6 @@ function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
 
-  //Make first Letter capital of firstName and LastName
   return (firstName.charAt(0).toUpperCase() + '.' + lastName.charAt(0).toUpperCase());
 }
 
@@ -88,9 +63,6 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-
-
-  //get the length of the string
   const len = str.length;
 
   //if small string return as it is
@@ -109,37 +81,20 @@ function getMiddleCharacter(str) {
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
 
-
   return word.split('').reverse().join('')
-
-/*
-  //get the length of the string
-  const len = word.length;
-  var resultString = '';
-  //iterate through each character in the word starting from last character
-  for (let  i = len; i > 0; i--) {
-
-    //0 index based, hence -1
-    resultString = resultString + word.charAt(i - 1);
-  }
-
-  return resultString;*/
 
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  //Get the number of words in the array  
   var count = words.length;
-
-  //Variale to staore the result
   var resultString = new Array();
-
-  //variable to store the current reveresed word
   var reversedWord = '';
 
 
+
+  
   //iterate through each element in the array
   for (let i = 0; i < count; i++) {
     //ititerate through each character in the current array element
@@ -163,37 +118,17 @@ function countLinuxUsers(users) {
 
   return users.filter( users =>users.type.toUpperCase () == 'LINUX').length
 
-/*  //iterate through each user
-  for (let i = 0; i < numberOfUsers; i++) {
-
-    //update current user
-    currentUser = users[i];
-
-    //if the type of current user is Linux then increment count
-    if (currentUser['type'].toUpperCase().includes('LINUX'))
-      count = count + 1;
-
-  }
-
-  return count;*/
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
 
 
-  //Variables to store the sum and calculate the mean
+
   var sum = 0;
   var mean = 0;
 
   sum =  scores.reduce((a, b) => a + b, 0)
-
-/*  //iterate through each score
-  for (let i = 0; i < scores.length; i++) {
-    //add the scores
-    sum = sum + scores[i];
-  }
-*/
 
   //calculate the mean
   mean = sum / scores.length;
