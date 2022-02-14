@@ -1,19 +1,11 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
 
-  //Variale to staore the result
-  var resultArray = new Array();
+const newArr = nums.map(function(item) {
+  return item * item;
+});
 
-  //iterate through each number in the array
-  for (var i = 0; i < nums.length; i++) {
-
-    //calculate the square and store in result array
-    resultArray[i] = (nums[i] ** 2);
-
-  }
-
-  return resultArray;
-
+  return newArr;
 }
 
 function camelCaseWords(words) {
