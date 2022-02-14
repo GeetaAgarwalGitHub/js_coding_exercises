@@ -86,30 +86,9 @@ function reverseWord(word) {
 }
 
 function reverseAllWords(words) {
-  if (words === undefined) throw new Error("words is required");
+  if (words === undefined) throw new Error("words is required")
 
-  var count = words.length;
-  var resultString = new Array();
-  var reversedWord = '';
-
-
-
-  
-  //iterate through each element in the array
-  for (let i = 0; i < count; i++) {
-    //ititerate through each character in the current array element
-    for (let j = words[i].length; j > 0; j--) {
-      //append each to variable
-      reversedWord = reversedWord + words[i].charAt(j - 1);
-    }
-
-    //add the reversed word to the result array
-    resultString[i] = reversedWord;
-    reversedWord = '';
-  }
-
-  return resultString;
-
+  return words.map(word => word.split('').reverse().join(''));
 }
 
 
