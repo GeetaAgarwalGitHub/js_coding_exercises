@@ -10,46 +10,24 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-/*
-  //Variale to staore the result
-  var resultString = '';
-
-  //iterate through each word in the array
-  for (let i = 0; i < words.length; i++) {
-
-    //change the case to lower if first word else change to uppercase
-    if (i == 0)
-      resultString = resultString + words[i].substring(0, 1).toLowerCase() + words[i].substring(1).toLowerCase();
+  const newArr = words.reduce(function add(accumulator, word, index) {
+    if (index == 0)
+      return accumulator + word.substring(0, 1).toLowerCase() + word.substring(1).toLowerCase();
     else
-      resultString = resultString + words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
-
+      return accumulator + word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
   }
-
-  return resultString;
-*/
-const newArr =words.reduce( function add(accumulator, word,index) {
-  if(index == 0)
-
-  return accumulator + word.substring(0, 1).toLowerCase() + word.substring(1).toLowerCase();
-   else
-    return accumulator + word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
-}
-);
-return newArr;
+  );
+  return newArr;
 }
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
 
-  //variabel to store the count
-  var count = 0;
-
-
-  //iterate through each person and add the number of subjects
-  for (let i = 0; i < people.length; i++) {
-    count = count + people[i]['subjects'].length;
-  }
-  return count;
+  const totalSubjects = people.reduce(function addSubjects(total, person) {
+    return total+ person.subjects.length;
+  },0);
+  return totalSubjects;
+  
 }
 
 function checkIngredients(menu, ingredient) {
