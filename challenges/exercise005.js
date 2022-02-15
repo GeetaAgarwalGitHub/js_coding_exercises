@@ -2,19 +2,10 @@ const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
 
-  //variable to store the result
-  var result = null;
+  const indexOfN = nums.indexOf(n);
+  const len = nums.length;
 
-  //iterate through each number in nums
-  for (let i = 0; i < nums.length; i++) {
-
-    //if required number found and next number is not null then return the next number
-    if (nums[i] == n && nums[i + 1] != null) {
-      result = nums[i + 1];
-      break;
-    }
-  }
-  return result;
+  return ( indexOfN >=0 & indexOfN < len-1 )? nums[indexOfN+1] : null;
 };
 
 const count1sand0s = str => {
