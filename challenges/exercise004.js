@@ -50,7 +50,8 @@ function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
 
-
+return sentences.filter(sentence => sentence.toLowerCase().includes(str.toLowerCase()))
+/*
   //variable to store the result array
   var resultArray = new Array();
   var index = 0;
@@ -66,7 +67,7 @@ function findSentencesContaining(sentences, str) {
       index++;
     }
   }
-  return resultArray;
+  return resultArray;*/
 }
 
 function getLongestSides(triangles) {
