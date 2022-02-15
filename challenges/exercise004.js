@@ -2,7 +2,6 @@ function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
   return nums.filter(num => num < 1)
-
 }
 
 function findNamesBeginningWith(names, char) {
@@ -10,34 +9,24 @@ function findNamesBeginningWith(names, char) {
   if (!char) throw new Error("char is required");
 
   return names.filter(name => name.substring(0, 1).toLowerCase().includes(char.toString().toLowerCase()))
-
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
 
   return words.filter(word => word.substring(0, 3).toLowerCase().includes('to '))
-
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
 
   return nums.filter(num => !(num.toString().includes('.')))
-
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
 
-  //variable to store the result array
-  var resultArray = new Array();
-  var index = 0;
-  for (let i = 0; i < users.length; i++) {
-    resultArray[index] = users[i]['data']['city']['displayName'];
-    index++;
-  }
-  return resultArray;
+  return users.map(user => user.data.city.displayName)
 }
 
 function getSquareRoots(nums) {
@@ -51,7 +40,6 @@ function findSentencesContaining(sentences, str) {
   if (!str) throw new Error("str is required");
 
   return sentences.filter(sentence => sentence.toLowerCase().includes(str.toLowerCase()))
-
 }
 
 function getLongestSides(triangles) {
