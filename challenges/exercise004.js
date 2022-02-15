@@ -16,41 +16,15 @@ function findNamesBeginningWith(names, char) {
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
 
+  return words.filter(word => word.substring(0,3).toLowerCase().includes('to '))
 
-  //variable to store the result array
-  var resultArray = new Array();
-  var index = 0;
-
-  //iterate through each word in array
-  for (let i = 0; i < words.length; i++) {
-
-    //if word is to
-    if (words[i].trim().substring(0, 3).toLowerCase().includes('to ')) {
-      //add to result array
-      resultArray[index] = words[i];
-      index++;
-    }
-  }
-  return resultArray;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
 
-  //variable to store the result array
-  var resultArray = new Array();
-  var index = 0;
+  return nums.filter(num => !(num.toString().includes('.')))
 
-  //iterate through each number in nums#
-  for (let i = 0; i < nums.length; i++) {
-
-    //if number less than 1 add it to result array
-    if (!nums[i].toString().includes('.')) {
-      resultArray[index] = nums[i];
-      index++;
-    }
-  }
-  return resultArray;
 }
 
 function getCities(users) {
@@ -69,29 +43,7 @@ function getCities(users) {
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
 
-
-  //variable to store the result array
-  var resultArray = new Array();
-  var index = 0;
-  var sqrt = 0;
-
-  //iterate through each number in nums
-  for (let i = 0; i < nums.length; i++) {
-
-    //get the square root
-    sqrt = Math.sqrt(nums[i]);
-
-    //if square root has decimal, round it two places
-    if (sqrt.toString().includes('.')) {
-      sqrt = sqrt.toFixed(2);
-    }
-
-    //add result to array
-    resultArray[index] = Number(sqrt);
-    index++;
-
-  }
-  return resultArray;
+  return nums.map(num => Math.round(Math.sqrt(num)* 100) / 100)
 }
 
 function findSentencesContaining(sentences, str) {
