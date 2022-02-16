@@ -2,17 +2,15 @@
 
 function printColours(colours) {
     if (!colours) throw new Error("colour is required");
-    
-    var newColours = [...colours];
-    return newColours;
+
+    return [...colours];
 }
 
 function shoppingList(list, newItem) {
     if (!list) throw new Error("list is required");
     if (!newItem) throw new Error("newItem is required");
 
-    var newList = [...list, ...newItem];
-    return (newList);
+    return ([...list, ...newItem]);
 
 }
 
