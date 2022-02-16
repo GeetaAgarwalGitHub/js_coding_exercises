@@ -23,7 +23,7 @@ const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
 
   //variable to convert the string to lowercase
-  var DNA = str.toString().toLowerCase();
+  const DNA = str.toString().toLowerCase();
 
   //iterate through each char in string
   for (let i = 0; i < DNA.length; i++) {
@@ -50,7 +50,7 @@ const getComplementaryDNA = str => {
     return ('Invalid DNA!!');
 
   //object saves the pair as key value
-  var DNAObject = {
+  const DNAObject = {
     T: "A",
     C: "G",
     A: "T",
@@ -87,7 +87,7 @@ const isItPrime = n => {
   const s = Math.sqrt(n);
   //iterate through each number from 3 to square root
   for (let i = 3; i <= s; i += 2) {
-    //if remainder is 0 means not primt
+    //if remainder is 0 means not prime
     if (n % i === 0)
       return false;
   }
@@ -110,14 +110,12 @@ const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
 
-  var ResultArray = new Array();
-  var subArray = new Array();
+  let ResultArray = new Array();
+  let subArray = new Array();
 
-  //iterate 0 through n to creat arrays
   for (let i = 0; i < n; i++) {
 
     //fill the subarrays with content
-
     for (let j = 0; j < n; j++)
       subArray[j] = fill;
 
@@ -144,7 +142,7 @@ const areWeCovered = (staff, day) => {
   if (day === undefined) throw new Error("day is required");
 
   //variable to save the number of staff
-  var numberOfStaff = 0;
+  let numberOfStaff = 0;
 
   //iterate through each staff
   for (let i = 0; i < staff.length; i++) {
@@ -155,12 +153,7 @@ const areWeCovered = (staff, day) => {
   }
 
   //if number of staff are less than 3 return false
-  if (numberOfStaff >= 3)
-    return true;
-
-  //else return true
-  else
-    return false;
+  return (numberOfStaff >= 3) ? true : false;
 };
 
 module.exports = {
