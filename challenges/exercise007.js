@@ -5,16 +5,13 @@
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
 
-  //variable to save total
-  var total = 0;
+ const arr = n.toString().split('')
+  
+ return Number(arr.reduce((function (sum, number) {
+      return Number(sum) + Number(number);
+  })))
 
-  var number = n.toString().trim();
 
-  for (let i = 0; i < number.length; i++) {
-    total = total + Number(number.toString().substring(i, i + 1));
-  }
-
-  return total;
 };
 
 /**
@@ -30,8 +27,8 @@ const createRange = (start, end, step) => {
   if (end === undefined) throw new Error("end is required");
 
   //variable to store the result array and index
-  var resultArray = new Array();
-  var index = 0;
+  let resultArray = new Array();
+  let index = 0;
 
   //iterate through each number starting at start to end adding the step counter
   for (let i = start; i <= end; i = i + step) {
