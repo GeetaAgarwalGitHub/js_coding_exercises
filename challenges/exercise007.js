@@ -5,10 +5,10 @@
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
 
- const arr = n.toString().split('')
-  
- return Number(arr.reduce((function (sum, number) {
-      return Number(sum) + Number(number);
+  const arr = n.toString().split('')
+
+  return Number(arr.reduce((function (sum, number) {
+    return Number(sum) + Number(number);
   })))
 
 
@@ -73,11 +73,11 @@ const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
 
-  var screenTime;
-  var currObject;
-  var count = 0;
-  var resultArray = new Array();
-  var index = 0;
+  let screenTime;
+  let currObject;
+  let count = 0;
+  let resultArray = new Array();
+  let index = 0;
 
   //iterate through each user in the users
   for (let user = 0; user < users.length; user++) {
@@ -124,11 +124,11 @@ const getScreentimeAlertList = (users, date) => {
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
 
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
   if (result) {
-    var r = parseInt(result[1], 16);
-    var g = parseInt(result[2], 16);
-    var b = parseInt(result[3], 16);
+    const r = parseInt(result[1], 16);
+    const g = parseInt(result[2], 16);
+    const b = parseInt(result[3], 16);
     return 'rgb(' + r + "," + g + "," + b + ')';
   }
   return null;
