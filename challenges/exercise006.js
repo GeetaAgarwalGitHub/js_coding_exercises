@@ -7,28 +7,11 @@
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
 
+  return arr.reduce((function (sum, number) {
+    if (number % 3 == 0 || number % 5 == 0)
+      return sum + number;
+  }))
 
-  //varaibles to store the remainders when number divided by 3 & 5
-  var isDivisibleBy3;
-  var isDivisibleBy5;
-
-  //variable to store the sum of numbers divisible by 3 or 5
-  var totalSum = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    //store the remainders when number divided by 3 & 5
-    isDivisibleBy3 = arr[i] % 3;
-    isDivisibleBy5 = arr[i] % 5;
-
-
-    //if remainder is 0 add to the total
-    if (isDivisibleBy3 == 0 || isDivisibleBy5 == 0)
-      totalSum = totalSum + arr[i];
-
-
-  }
-  //return total
-  return totalSum;
 };
 
 /**
