@@ -5,11 +5,13 @@ const findNextNumber = (nums, n) => {
   const indexOfN = nums.indexOf(n);
   const len = nums.length;
 
-  return ( indexOfN >=0 & indexOfN < len-1 )? nums[indexOfN+1] : null;
+  return (indexOfN >= 0 & indexOfN < len - 1) ? nums[indexOfN + 1] : null;
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
+  
+    
 
   //Object to store 0s and 1s    
   var myObjectOf0sand1s = {
@@ -43,78 +45,31 @@ const count1sand0s = str => {
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
 
-  //variable to store the result
-  var result = '';
+  //convert the number to string array
+  const strArr = n.toString().split('');
 
-  //convert the number to string and save its length
-  var number = n.toString();
-  var numberOfDigits = number.length;
-
-  //variable to store the first non 0 digit
-  var firstNon0Digit = null;
-
-  //iterate through each digit in n
-  for (let i = numberOfDigits; i > 0; i--) {
-
-    //when first non 0 digit found , set a flag to ignore the preceding 0s
-    if (!number[i - 1].includes('0') > 0 && firstNon0Digit == null)
-      firstNon0Digit = i - 1;
-
-    //add result to string if its not a number beginning with 0
-    if (firstNon0Digit != null)
-      result = result + number[i - 1];
-
-  }
-  return Number(result);
+  //reverse the array and return the joined string
+  return Number(strArr.reverse().join(''))
 
 };
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
 
+  return arrs.flat().reduce((d, i) => d + i)
 
-  //variable to store the result
-  var total = 0;
-
-  //iterate through each array in arra
-  for (let i = 0; i < arrs.length; i++) {
-
-    //iterate through each array in the array
-    for (let j = 0; j < arrs[i].length; j++) {
-      //add to total
-      total = total + arrs[i][j];
-    }
-  }
-
-  //return sum
-  return total;
 };
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
 
-  //variable to store the result
-  var resultArray = new Array();
-
-  //variable to store the length
-  var arrLength = arr.length;
-
   //if there are less then 2 items, just return arr as it is
-  if (arrLength < 2)
+  if (arr.length < 2)
     return arr;
 
-  //Put last element of arr into first element of result
-  resultArray[0] = arr[arrLength - 1];
-
-  //iterate through all element of the arr starting from second element to second last element and add them to the result array
-  for (let i = 1; i < arrLength - 1; i++)
-    resultArray[i] = arr[i];
-
-  //Put first element of arr into last element of result
-  resultArray[arrLength - 1] = arr[0];
-
-  //return result
-  return resultArray;
+  //swap elements
+  arr.splice(0, 1, arr.splice(arr.length - 1, 1, arr[0])[0]);
+  return arr;
 };
 
 const findNeedle = (haystack, searchTerm) => {
@@ -128,51 +83,43 @@ const findNeedle = (haystack, searchTerm) => {
     //if the key contains search term then reurn true
     if (haystack[currProperty].toString().toLowerCase().includes(searchTerm.toLowerCase()))
       return true;
-  };
+  }
   return false;
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
 
-  //variable to store the string as array
-  //we re only storing alphanumeric string..everythign else is ignored
-  var strArray = str.replace(/[^A-Za-z0-9\s]/g, "").replace(/\s{2,}/g, " ").toString().split(' ');
+  //remove special characters
+  str = str.replace(/[^A-Za-z0-9\s]/g, "").replace(/\s{2,}/g, " ").toString();
 
-  //create new object for result
-  var resultObject = new Object();
+  const strArr = str.split(' ');
+  var counts = {}, i, value;
 
-  //variable to store the count of words in object
-  var j = 0;
-
-  //iterate through each word in the array
-  for (let i = 0; i < strArray.length; i++) {
-
-    //check the count of words in object
-    j = checkCountIfKeyExists(resultObject, strArray[i])
-
-    //if count is not 0 then then increment count
-    if (j > 0)
-      resultObject[strArray[i].toLowerCase()] = j + 1;
-    else
-      //else add key and value
-      resultObject[strArray[i].toLowerCase()] = 1;
+  for (i = 0; i < strArr.length; i++) {
+    value = strArr[i].toLowerCase();
+    if (typeof counts[value.toLowerCase()] === "undefined") {
+      counts[value] = 1;
+    } else {
+      counts[value.toLowerCase()]++;
+    }
   }
 
-  //return object
-  return resultObject;
+  return counts;
 };
 
 function checkCountIfKeyExists(resultObject, str) {
+
   for (var currProperty in resultObject) {
 
     if (currProperty.toString().toLowerCase() == str.toLowerCase())
       return Number(resultObject[currProperty]);
 
-
   };
   return 0;
 }
+
+
 module.exports = {
   findNextNumber,
   count1sand0s,
