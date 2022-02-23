@@ -8,27 +8,25 @@ const findNextNumber = (nums, n) => {
   return (indexOfN >= 0 & indexOfN < len - 1) ? nums[indexOfN + 1] : null;
 };
 
+
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   
-    
+    const strArr = str.split('');
 
-  //Object to store 0s and 1s    
-  var myObjectOf0sand1s = {
+   //Object to store 0s and 1s    
+   const myObjectOf0sand1s = {
     1: null,
     0: null
   };
 
-  //variables to count 0s and 1s
   var numberOf0s = 0;
   var numberof1s = 0;
 
   //iterate through char in string
   for (let i = 0; i < str.length; i++) {
-    //if char is 1 then increment counter for 1
     if (str[i].includes('1'))
       numberof1s++;
-    //else increment counter for 0
     if (str[i].includes('0'))
       numberOf0s++;
 
@@ -38,8 +36,8 @@ const count1sand0s = str => {
   myObjectOf0sand1s['1'] = numberof1s;
   myObjectOf0sand1s['0'] = numberOf0s;
 
-  //return object
   return myObjectOf0sand1s;
+
 };
 
 const reverseNumber = n => {
